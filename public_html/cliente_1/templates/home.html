@@ -1,0 +1,49 @@
+<div class="container-home">
+    <div class="admin-title p-xl-5 p-0">
+        <h1><strong>¡Hola, {{empleadoSesion.nombre}}!</strong></h1>
+    </div>
+    <!--/*bxslider.com/*/-->
+    <div id="showslide" class="mb-5">
+        <div class="bxslider">
+            <div>
+                <img src="images/slider/1.jpg" />
+            </div>
+            <div>
+                <img src="images/slider/2.jpg" />
+            </div>
+            <div>
+                <img src="images/slider/3.jpg" />
+            </div>
+            <div>
+                <img src="images/slider/4.jpg" />
+            </div>
+        </div>
+        <!--/*bxslider.com/*/-->
+    </div>
+    <!--    <div id="irModulos" class="col-12 text-center pl-xl-5 pl-lg-5 pl-md-5 pl-0 pr-0 mb-5">
+            <div></div>
+            <button ng-click="irModulos(empleadoSesion.empresaId)" class="boton_personalizado">Ir a mis m&oacute;dulos contratados</button>
+            <button ng-click="irModulos(empleadoSesion.empresaId)" class="boton_personalizado">Ir a mis m&oacute;dulos contratados</button>
+        </div>-->
+    <div class="admin-title">
+        <h1>
+            Estos son los 10 videos m&aacute;s vistos.
+        </h1>
+        <div class="col-12 row">
+            <div ng-repeat="video in diezVideos" class="col-xl-3 col-lg-4 col-md-6">
+                <div class="col-xl-12 col-md-12">
+                    <div ng-click="irAVideo()" class="" id="video-frame-home">
+                        <iframe ng-src="{{video.linkVideo}}" frameborder="0" allow="autoplay;" allowfullscreen></iframe>
+                    </div>
+                    <div class="">
+                        <a ui-sref="{{video.url}}"><h5>{{video.nombre}}</h5></a>
+                        <p class="card-text">{{video.descripcion}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

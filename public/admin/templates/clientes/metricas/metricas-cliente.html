@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="admin-title pt-5 pb-5">
+        <h1>M&eacute;tricas de {{cliente.nombreEmpresa}}</h1>
+    </div>
+    <div class="col-12 text-center" id="modulo">
+        <div class="col-12 p-3" ng-repeat="modulo in modulos">
+            <div class="row">
+                <div>
+                    <a ui-sref="{{modulo.state}}"><img ng-src="{{modulo.imageURI}}"/></a>
+                </div>
+                <div class="text-left p-3 buttonsMetricas">
+                    <a ui-sref="{{modulo.state}}"><h4 class="pt-3">{{modulo.nombre}}</h4></a>
+                    <label>{{modulo.vistas}} vistas a este modulo</label><br>
+                    <button class="btn btn-primary" ng-click="irADetallePorVideo(modulo.moduloId)"> Ver detalle por video</button>
+                    <button class="btn btn-secondary" ng-click="irADetallePorEmpleado(modulo.moduloId)"> Ver detalle por empleado</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

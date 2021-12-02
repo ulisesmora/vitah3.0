@@ -1,0 +1,204 @@
+<!--<div class="main">
+    <aside>
+        <nav id="menu-desktop" class="sidebar-navigation-back" style="font-family: Montserrat-Medium;">
+            <nav class="sidebar-navigation">
+                <ul>
+                    <li style="background-color: rgb(29, 29, 27)" id="logo_menu">
+                        <img width="60" src="images/menu/V_vitah_white.png" alt="Vitah logo">
+                    </li>
+                    <li style="background-color: rgb(51, 51, 51); cursor:default; border: none;">
+                    </li>
+                    <li style="background-color: rgb(51, 51, 51);  cursor:default; border: none;">
+                    </li>
+                    <li ng-repeat="menu_element in menu_elements" ng-mouseenter="menu_element.show_subelements = !menu_element.show_subelements" ng-mouseleave="menu_element.show_subelements = !menu_element.show_subelements">
+                        <a ui-sref="{{menu_element.state}}" ng-if="!menu_element.submenu_elements">
+                            <img ng-src="{{menu_element.icon}}" width="40px"/> 
+                        </a>
+                        <span ng-if="menu_element.submenu_elements" class="d-block pointer">
+                            <img ng-src="{{menu_element.icon}}" width="40px"/> 
+                        </span>
+                                        <ul class="submenu" ng-if="menu_element.submenu_elements">
+                        <ul class="submenu acorh" ng-if="menu_element.submenu_elements">
+                            <li class ="menu-element" ng-repeat="submenu_element in menu_element.submenu_elements" ng-show="menu_element.show_subelements">
+                                <a ui-sref="{{submenu_element.state}}" >
+                                    <a ui-sref="main.ver-modulo({moduloId:'6FA5ifJzS6bzW4zkKMOb'})">
+                                    <i class="{{submenu_element.icon}}"></i> {{submenu_element.text}}
+                                </a>
+                                                        <ul class="acorh video">
+                                                            <li ng-repeat="video in submenu_element.videos">
+                                                                <a ui-sref="{{video.state}}" > 
+                                                                   {{video.nombre}}
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li ng-click="logOut()">
+                        <i class="fas fa-power-off"></i>
+                    </li>
+                </ul>
+                {{menu_elements}}
+            </nav>
+        </nav>
+        <div id="menu-mobile" style="font-family: Montserrat-Medium;">
+            <div class="content">
+            <nav role="navigation">
+            <nav>
+                <div id="menuToggle">
+                    <input type="checkbox" />
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                                        <ul id="menu">
+                                            <li><a href="#">Home</a></li>
+                                            <li><a href="#">About</a></li>
+                                            <li><a href="#">Info</a></li>
+                                            <li><a href="#">Contact</a></li>
+                                        </ul>
+                    <ul id="menu" class="acorh-mobile text-left pl-4">
+                        <li id="logo_menu" class="pl-2 pl-xs-0" style="background-color: black;">
+                            <img style="margin-left: 180px;" width="40" src="images/menu/v_vitah_white.png" alt="Vitah logo">
+                            <img width="40" src="images/menu/V_vitah_white.png" alt="Vitah logo">
+                        </li>
+                        <li ng-repeat="menu_element in menu_elements_mobile" style="padding:10px 0px" ng-class="{'submenu-open': menu_element.show_subelements}" ng-click="submenuElementsShow(menu_element)">
+                            <a ui-sref="{{menu_element.state}}" ng-click="menu_element.show_subelements = !menu_element.show_subelements" >
+                            <a ui-sref="{{menu_element.state}}" ng-click="(menu_element.show_subelements = !menu_element.show_subelements)&&(submenuElementsShow(menu_element))" >
+                                <img ng-src="{{menu_element.icon}}" width="40px"/> {{menu_element.text}} <i class="{{menu_element.subicon}}"></i>
+                            </a>
+                            <ul ng-if="menu_element.submenu_elements">
+                            <ul ng-if="menu_element.submenu_elements" ng-show="menu_element.show_subelements" >
+                                <li ng-repeat="submenu_element in menu_element.submenu_elements" ng-click="submenuElementsShow(submenu_element)">
+                                    <a ui-sref="{{submenu_element.state}}" ng-click="menu_element.show_subelements = !menu_element.show_subelements">
+                                        {{submenu_element.text}}
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li ng-click="logOut()" >
+                         <i style="font-size: 20px" class="fas fa-power-off"></i><label>&nbsp;Cerrar sesi&oacute;n</label>
+                        </li>
+                    </ul>
+                </div>
+                <div id="logo-menu-responsivo">
+                    <img width="60" src="images/menu/logo_vitah_white.png" alt="Vitah logo">
+                </div>
+            </nav>
+            </div>
+        </div>
+    </aside>
+    <div class="pages">
+        <div ui-view style="min-height:100%;"></div>
+        <div ui-view></div>
+        <footer id="footer">
+            <div class="col-12 row">
+                <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12 pl-xl-5">
+                    <img class="" src="images/logo_vitah_footer.png" width="180">
+                </div>
+                <div class="col-xl-2 col-lg-2 col-md-12 col-sm-12 col-xs-12 pt-xl-5 pb-xl-5">
+                    <p id="titulo">Cont&aacute;ctanos</p>
+                    <label id="subtitulo">Reportar problemas o aclaraciones</label><br>
+                    <a href="mailto:soporte@vitah.mx">soporte@vitah.mx</a><br><br>
+                    <label id="subtitulo">Informaci&oacute;n general</label><br>
+                    <a href="mailto:info@vitah.mx">info@vitah.mx</a><br><br>
+                </div>
+                <div class="col-xl-2 col-lg-2 col-md-12 col-sm-12 col-xs-12 pt-xl-5 pb-xl-5">
+                    <p id="titulo">Ayuda</p>
+                    <a href="../auth/files/aviso_privacidad.pdf" download>Aviso de privacidad</a><br>
+                    <a href="../auth/files/terminos_condiciones.pdf" download>T&eacute;rminos y condiciones</a><br>
+                </div>
+                <br>
+                <div class="col-xl-2 col-lg-2 col-md-12 col-sm-12 col-xs-12 pt-xl-5 pt-3 pt-sm-3 pb-5">
+                    <p id="titulo">Sobre Nosotros</p>
+                    <a href="https://www.vitah.mx" target="_blank">Ir al sitio web de Vitah</a><br><br>
+                    <a href="https://www.instagram.com/vitah.mx/" target="_blank"> <i class="fab fa-instagram"></i></a>&nbsp; &nbsp;<a href="https://www.facebook.com/vitahmx/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>-->
+<div class="main">
+    <nav class="navbar navbar-expand-lg navbar-light" id="menu_gral">
+        <a class="navbar-brand" href="#">
+            <img src="images/menu/logo_vitah_white.png" width="150" alt="">
+        </a>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <ul class="navbar-nav">
+                <li ng-repeat="menu_element in menu_elements">
+                    <a class="nav-item nav-link" ui-sref="{{menu_element.state}}">
+                        {{menu_element.text}}
+                        <i class="{{menu_element.icon}}"></i> 
+                    </a>
+                    <ul ng-if="menu_element.submenu_elements" >
+                        <li class ="nav-item nav-link" ng-repeat="submenu_element in menu_element.submenu_elements">
+                            <a ui-sref="{{submenu_element.state}}" ui-sref-active="current">
+                                {{submenu_element.text}}
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div id="menu-mobile" style="font-family: Montserrat-Medium;">
+        <nav>
+            <div id="menuToggle">
+                <input type="checkbox" />
+                <span></span>
+                <span></span>
+                <span></span>
+                <ul  id="menu"  class="navbar-nav acorh-mobile">
+                    <li ng-repeat="menu_element in menu_elements"  ng-class="{'submenu-open': menu_element.show_subelements}" ng-click="submenuElementsShow(menu_element)">
+                        <a class="nav-item nav-link" ui-sref="{{menu_element.state}}" ng-click="(menu_element.show_subelements = !menu_element.show_subelements) && (submenuElementsShow(menu_element))" >
+                            {{menu_element.text}}
+                        </a>
+                        <ul ng-if="menu_element.submenu_elements"  ng-show="menu_element.show_subelements">
+                            <li class ="nav-item nav-link" ng-repeat="submenu_element in menu_element.submenu_elements" ng-click="submenuElementsShow(submenu_element)">
+                                <a ui-sref="{{submenu_element.state}}" ui-sref-active="current" style="color:white;" ng-click="menu_element.show_subelements = !menu_element.show_subelements">
+                                    {{submenu_element.text}}
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div id="logo-menu-responsivo">
+                <img width="60" src="images/menu/logo_vitah_white.png" alt="Vitah logo">
+            </div>
+        </nav>
+        <!--</div>-->
+    </div>
+    <!--<div class="wrapper" ui-view></div>-->
+    <div class="pages">
+        <div ui-view style="min-height:100%;"></div>
+        <!--<div ui-view></div>-->
+        <footer id="footer">
+            <div class="col-12 row">
+                <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12 pl-xl-5">
+                    <img class="" src="images/logo_vitah_footer.png" width="180">
+                </div>
+                <div class="col-xl-2 col-lg-2 col-md-12 col-sm-12 col-xs-12 pt-xl-5 pb-xl-5">
+                    <p id="titulo">Cont&aacute;ctanos</p>
+                    <label id="subtitulo">Reportar problemas o aclaraciones</label><br>
+                    <a href="mailto:soporte@vitah.mx">soporte@vitah.mx</a><br><br>
+                    <label id="subtitulo">Informaci&oacute;n general</label><br>
+                    <a href="mailto:info@vitah.mx">info@vitah.mx</a><br><br>
+                </div>
+                <div class="col-xl-2 col-lg-2 col-md-12 col-sm-12 col-xs-12 pt-xl-5 pb-xl-5">
+                    <p id="titulo">Ayuda</p>
+                    <a href="../auth/files/aviso_privacidad.pdf" download>Aviso de privacidad</a><br>
+                    <a href="../auth/files/terminos_condiciones.pdf" download>T&eacute;rminos y condiciones</a><br>
+                </div>
+                <br>
+                <div class="col-xl-2 col-lg-2 col-md-12 col-sm-12 col-xs-12 pt-xl-5 pb-xl-5">
+                    <p id="titulo">Sobre Nosotros</p>
+                    <a href="https://www.vitah.mx" target="_blank">Ir al sitio web de Vitah</a><br><br>
+                    <a href="https://www.instagram.com/vitah.mx/" target="_blank"> <i class="fab fa-instagram"></i></a>&nbsp; &nbsp;
+                    <a href="https://www.facebook.com/vitahmx/" target="_blank"><i class="fab fa-facebook-f"></i></a>&nbsp; &nbsp;
+                    <a href="https://vm.tiktok.com/ZMdGYu5sS/" target="_blank"><i class="fab fa-tiktok"></i></a>&nbsp; &nbsp;
+                    <a href="https://linkedin.com/company/vitah-wellness" target="_blank"><i class="fab fa-linkedin"></i></a>&nbsp; &nbsp;
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>

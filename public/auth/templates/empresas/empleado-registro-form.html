@@ -1,0 +1,426 @@
+<div class="container-form">
+    <div class="row col-12" id="header-login">
+        <div class="col-xl-4 col-lg-4 col-md-3 col-sm-1"></div>
+        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-10 justify-content-center">
+            <a ui-sref="main.home"><img src="auth/images/logo_vitah_white.png"  class="img-fluid" alt="Vitah logo"></a>
+        </div>
+        <div class="col-xl-4 col-lg-4 col-md-3 col-sm-12"></div>
+    </div>
+    <div class="row col-12">
+        <!--<div class="col-2"></div>-->
+        <div class="col-xl-2 col-lg-1 col-md-12 col-sm-12 col-xs-1"></div>
+        <!--<div id="registro-form" class="col-9 p-5">-->
+        <!--<div id="registro-form" class="col-xl-8 col-lg-10 col-md-12 col-sm-12 col-xs-10">-->
+        <div id="form" class="col-xl-8 col-lg-10 col-md-12 col-sm-12 col-xs-10">
+            <form class="register-user">
+            <div class="text-center">
+                <h1 class="p-2">¡Regístrate!</h1>
+            </div>
+                <div id="codigo-vitah" ng-if="codigoValido === false">
+                    <h5 class="p-3">Utiliza el código proporcionado por la empresa a la que perteneces</h5>
+                    <div class="form-group">
+                        <div class="row">
+                            <label class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">C&oacute;digo</label>
+                            <input type="text" class="form-control col-xl-9 col-lg-9 col-md-9 col-sm-12 col-xs-12" ng-model="codigoVitah" placeholder="Código">
+                        </div>
+                        <div class="row m-3 float-right">
+                            <a ui-sref="main.login" class="m-2">Atr&aacute;s</a>&nbsp;&nbsp;&nbsp;
+                            <button class="btn btn-primary" ng-click="validarCodigo(codigoVitah)">Siguiente</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="registro-cliente" ng-if="codigoValido === true">
+                    <div class="form-group">
+                        <div class="row p-3">
+                            <label class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">Nombre* </label>
+                            <input type="text" class="form-control col-xl-8 col-lg-8 col-md-8 col-sm-12 col-xs-12" ng-model="empleado.nombre" placeholder="Nombre">
+                        </div>
+                        <!--                    </div>
+                                            <div class="form-group">-->
+                        <div class="row p-3">
+                            <label class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">Primer apellido* </label>
+                            <input type="text" class="form-control col-xl-8 col-lg-8 col-md-8 col-sm-12 col-xs-12" ng-model="empleado.primerApellido" placeholder="Primer apellido">
+                        </div>
+                        <div class="row p-3">
+                            <label class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">Segundo apellido*</label>
+                            <input type="text" class="form-control col-xl-8 col-lg-8 col-md-8 col-sm-12 col-xs-12" ng-model="empleado.segundoApellido" placeholder="Segundo apellido">
+                        </div>
+                        <div class="row p-3">
+                            <label class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12">Fecha de nacimiento*</label>
+                            <!--<input type="date" class="form-control col-7" ng-model="empleado.fechaNacimiento" placeholder="Fecha de Nacimiento">-->
+                            <div class="col-xl-2 col-lg-2 col-md-4 col-sm-4 col-xs-4">
+                                <small>D&iacute;a</small>
+                                <input type="text" class="form-control"  maxlength="2" ng-model="empleado.diaNacimiento" placeholder="dd" numbers-only allowDecimals="false">
+                                <small>dd</small>
+                            </div>
+                            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-4 col-xs-4">
+                                <small>Mes</small> 
+                                <!--<input type="text" class="form-control" ng-model="empleado.mesNacimiento" placeholder="Fecha de Nacimiento">-->
+                                <select class="form-control" name="repeatSelect" id="repeatSelect" ng-model="empleado.mesNacimiento">
+                                    <option ng-repeat="option in meses" value="{{option.id}}">{{option.mes}}</option>
+                                </select>
+                                <small>mm</small>
+                            </div>
+                            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-4 col-xs-4">             
+                                <small>Año</small> 
+                                <input type="text" class="form-control" maxlength="4" ng-model="empleado.anioNacimiento" placeholder="aaaa" numbers-only allowDecimals="false">
+                                <small>aaaa</small> 
+                            </div>
+                        </div>
+                        <div class="row p-3">
+                            <label class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12">Tel&eacute;fono*</label>
+                            <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-xs-12 p-0">
+                                <input type="text" class="form-control col-12" ng-model="empleado.telefono" placeholder="Teléfono" numbers-only allowDecimals="false">
+                                <small>Este campo sólo admite números</small>
+                            </div>
+                        </div>
+                        <div class="row p-3">
+                            <label class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12">Email*</label>
+                            <input type="email" class="form-control col-xl-8 col-lg-8 col-md-12 col-sm-12 col-xs-12" ng-model="empleado.email" placeholder="Email">
+                        </div>
+                        <div class="row p-3">
+                            <label class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12">Contraseña*</label>
+                            <input type="password" class="form-control col-xl-8 col-lg-8 col-md-12 col-sm-12 col-xs-12" ng-model="empleado.password" placeholder="Contraseña">
+                        </div>
+                        <div class="row p-3">
+                            <label class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12">Confirmar contraseña*</label>
+                            <input type="password" class="form-control col-xl-8 col-lg-8 col-md-12 col-sm-12 col-xs-12" ng-model="empleado.passwordRepeat" placeholder="Confirmar contraseña">
+                        </div>
+                        <div ng-if="empleado.password !== empleado.passwordRepeat">
+                            <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12"></div>
+                            <label class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-xs-12" style="color:red">Las contraseñas no coinciden</label>
+                        </div>
+                    </div>
+                    <div class="row m-3 float-right">
+                        <a ui-sref="main.login" class="m-2">Atr&aacute;s</a>&nbsp;&nbsp;&nbsp;
+                        <button class="btn btn-primary" ng-click="registrarEmpleado(empleado)">Registrarme</button>
+                    </div>
+                </div>
+            </form>
+            <div id="aviso-privacidad" class="modal">
+                <h2>Aviso de privacidad y T&eacute;rminos y Condiciones</h2>
+                <!--https://plnkr.co/edit/HmKBjYmJNjp8mPzIlg52?p=preview&preview-->
+                <textarea rows="10" cols="40" readonly style="background-color: #F2F2F2;" class="form-control">
+1
+I. OBJETO
+El presente tiene por objeto establecer los criterios y las disposiciones que llevará
+a cabo “SPA PARA TU MENTE S.A. DE C.V.” para el tratamiento de los datos
+personales del “TITULAR” (en lo sucesivo el CLIENTE y el USUARIO, conforme a
+lo establecido en los Términos y Condiciones de Vitah Home Office), de acuerdo
+con lo dispuesto por el artículo 15 de la Ley Federal de Protección de Datos
+Personales en Posesión de los Particulares.
+“SPA PARA TU MENTE S.A. DE C.V.” denominado en el presente VHO, en lo
+sucesivo el RESPONSABLE, pone a disposición de los usuarios que, para efectos
+del presente aviso de privacidad, tendrán el carácter de TITULARES; el siguiente
+aviso de privacidad, el cual es aplicable en los Estados Unidos Mexicanos.
+Con la finalidad de comprender de forma clara y precisa, se entenderá, para el
+presente aviso de privacidad lo siguiente:
+- Ley: Ley Federal de Protección de Datos Personales en Posesión de los
+Particulares
+- Reglamento: Reglamento de la Ley Federal de Protección de Datos
+Personales en Posesión de los Particulares.
+- Consentimiento: Manifestación de la voluntad del titular de los datos
+mediante la cual se efectúa el tratamiento de estos.
+AVISO DE PRIVACIDAD
+“VITAH HOME OFFICE”
+2
+- Datos personales: Cualquier información concerniente a una persona física
+identificada o identificable.
+- Datos personales sensibles: Aquellos datos personales que afecten a la
+esfera más íntima de su titular, o cuya utilización indebida pueda dar origen
+a discriminación o conlleve un riesgo grave para éste. En particular, se
+consideran sensibles aquellos que puedan revelar aspectos como origen
+racial o étnico, estado de salud presente y futuro, información genética,
+creencias religiosas, filosóficas y morales, afiliación sindical, opiniones
+políticas, preferencia sexual.
+- Titular: La persona física a quien corresponden los datos personales
+- Tercero: La persona física o moral, nacional o extranjera, distinta del titular
+o del responsable de los datos.
+- Tratamiento: La obtención, uso, divulgación o almacenamiento de datos
+personales, por cualquier medio. El uso abarca cualquier acción de acceso,
+manejo, aprovechamiento, transferencia o disposición de datos personales.
+- Transferencia: Toda comunicación de datos realizada a persona distinta
+del responsable o encargado del tratamiento.
+- Departamento de datos personales: Unidad interna encargada de dar
+respuesta a las interrogantes de los usuarios, así como a dar solicitud a sus
+derechos (ARCO).
+- Responsable: Persona física o moral de carácter privado que decide sobre
+el tratamiento de datos personales
+3
+- Encargado: La persona física o jurídica que sola o conjuntamente con otras
+trate datos personales por cuenta del responsable
+II. CONSENTIMIENTO
+El consentimiento por parte de los TITULARES se dará de forma expresa una vez
+que acepten los términos y condiciones, así como el presente. Lo mencionado con
+anterioridad, se pondrá a disposición, una vez que ingresan al portal web del
+RESPONSABLE, el cual se denomina: www.vitah-home.mx o www.vitahhome.
+com, o bien, si realiza la solicitud personal.
+Se entenderá que el TITULAR otorgó su consentimiento para el tratamiento de
+sus datos de manera tácita, si se puso a disposición el presente, y no haya
+manifestado su oposición. Conforme al artículo 8 de la Ley: “…Se entenderá que el
+titular consiente tácitamente el tratamiento de sus datos, cuando habiéndose
+puesto a su disposición el aviso de privacidad, no manifieste su oposición.”
+Si el TITULAR llegase a tener alguna duda respecto al contenido en el aviso de
+privacidad; puede manifestarla a través del siguiente correo electrónico:
+info@vitah.mx, en donde se atenderán todas sus interrogantes.
+No será necesario obtener su consentimiento para el tratamiento de sus datos
+personales, bajo los supuestos que marca el artículo 10 y 37 de la Ley.
+4
+El consentimiento otorgado por el TITULAR podrá ser revocado sin efectos
+retroactivos, en el supuesto que se envíe un correo electrónico al RESPONSABLE
+explicando las circunstancias. Una vez hecho lo anterior, el consentimiento quedará
+sin efectos y se extinguirán los servicios brindados por VITAH HOME OFFICE. Lo
+anterior conforme al artículo 8 de la Ley.
+En caso de que el RESPONSABLE requiera tratar datos sensibles por parte del
+TITULAR, lo notificará por medio de correo electrónico, fundamentando y
+explicando la razón para el tratamiento de éstos. Por ese mismo medio, el
+RESPONSABLE deberá contar con el consentimiento expreso por parte de el
+TITULAR, lo anterior con la finalidad de dar cumplimiento a lo establecido en el
+artículo 9 de la Ley.
+III. IDENTIDAD Y DOMICILIO
+El RESPONSABLE, es una persona moral constituida conforme a las leyes de la
+república mexicana, según lo acredita la escritura pública número 87,588, de fecha
+18 de septiembre del 2019, otorgada ante la fe del Lic. Luis Antonio Montes de
+Oca Mayagoitia, Notario Público Número 29, con ejercicio en la Ciudad de México
+la cual señala como domicilio el ubicado en: Bosque de Radiatas 42, Int. 101,
+Bosques de las Lomas, Cuajimalpa de Morelos, C.P. 05120, Ciudad de México,
+CDMX; mismo en donde se encuentra establecida principalmente nuestra
+administración.
+5
+Así mismo podrá contactarnos a través de nuestra página o de nuestro correo
+electrónico: info@vitah.com
+IV. ACCESO
+Para los fines de éste, se establece que “SPA PARA TU MENTE S.A. DE C.V.” por
+medio de la operación identificada “VITAH HOME OFFICE” (en lo sucesivo VHO)
+es el prestador de servicios vía remota (en lo sucesivo LOS SERVICIOS o EL
+SERVICIO); la sociedad, empresa, asociación y/o particular que requiera dichos
+servicios por parte de VHO, se identificará como el “CLIENTE” (en lo sucesivo el
+CLIENTE); por último, las personas que utilicen el contenido dentro de la
+plataforma de VHO, se les designará como el “USUARIO” (en los sucesivo el
+USUARIO o LOS USUARIOS según corresponda).
+Siendo “VITAH HOME OFFICE” una prestadora de servicios por conducto digital
+y/o a distancia de manera asíncrona, que eleva la productividad del “CLIENTE”,
+mediante la provisión a su personal de herramientas de gestión de factores de
+riesgo psicosocial del “USUARIO”, ofreciendo herramientas al cliente para el
+cumplimiento de la legislación vigente en materia de riesgos psicosociales, sin
+sustituir los cuidados médicos y psicológicos prestados por profesionales
+debidamente capacitados y autorizados para ello.
+Los servicios antes mencionados, se llevarán a cabo en la plataforma digital
+propiedad de “SPA PARA TU MENTE S.A. DE C.V.”, siendo estas: www.vitah6
+home.mx o www.vitah-home.com, que podrá determinar dicha sociedad a su
+discreción. En dicha plataforma se encontrará el contenido solicitado, así como lo
+pactado directamente con VHO. Cabe resaltar que los servicios se prestarán única
+y exclusivamente por el medio digital antes mencionado, no habrá ninguna
+excepción y ningún supuesto será válido para que los servicios a los que hace
+referencia el presente se presten de manera presencial o cualquier otra forma.
+Una vez que VHO afilie al CLIENTE y lo incorpore en su sistema, el primero
+generará un código único e intransmisible, el cual dará acceso limitado al número
+de USUARIOS, días a la semana y contenido pactados. VHO tendrá acceso en todo
+momento a la información generada por la plataforma y por los TITULARES, tales
+como, el ingreso a la plataforma, las métricas de la empresa y las tendencias del
+contenido. Asimismo, VHO tiene acceso a eliminar a los USUARIOS en el supuesto
+que el CLIENTE lo solicite.
+Antes de contratar los servicios de VHO por medio del sitio web o cualquiera de
+los medios establecidos por “SPA PARA TU MENTE S.A. DE C.V.”, el TITULAR
+deberá leer el presente Aviso de Privacidad.
+Para el acceso y registro del CLIENTE en la plataforma, VHO solicitará los
+siguientes datos:
+• Nombre
+• Razón Social
+• Domicilio
+7
+• Sitio Web
+• Fecha de Inicio de contratación
+• Fecha Fin de contratación
+• Nombre de Contacto
+• Apoderado
+• Correo Electrónico
+• Teléfono
+• Usuarios Disponibles
+• Accesos Disponibles de contenido
+En cuanto al acceso y registro de los USUARIOS, VHO solicitara los siguientes
+datos:
+• Nombre
+• Apellidos
+• Fecha de Nacimiento
+• Correo Electrónico
+• Teléfono
+Es responsabilidad de VHO, procurar que los datos personales contenidos en las
+bases de datos sean pertinentes, correctos y actualizados, para los fines que fueron
+recabados. En el momento que dichos datos dejen de ser necesarios, se les
+notificará dicha actualización y quedarán cancelados, contando con un plazo
+8
+máximo de 72 meses a partir de que se presente dicho incumplimiento, conforme
+lo establece el artículo 11 de la Ley.
+VHO en ningún momento realiza el tratamiento de datos personales sensibles.
+V. FINALIDAD DEL TRATAMIENTO DE DATOS
+La información de los datos personales que recibe VHO, se utilizarán para crear
+una base de datos que genera estadísticas de los USUARIOS, métricas tanto de la
+empresa como del CLIENTE y marca las tendencias que los USUARIOS establecen,
+todo lo anterior en el contexto del contenido ofrecido por VHO y sólo en su
+plataforma. Dicha base de datos es propiedad de VHO el cual en este acto
+manifiesta que es su facultad reservarse el derecho a transferirla con el CLIENTE.
+Para que el CLIENTE pueda gozar de dicha base de datos, es necesario que envíe
+una petición al correo electrónico de VHO, explicando a detalle el tratamiento que
+le dará a los datos personales y las razones por las cuales requiere de dicha base
+de datos. Una vez finalizado dicho procedimiento, quedará a discreción de VHO,
+compartir dicha base de datos.
+Dentro de la plataforma, se crea un registro de comportamiento de uso de la
+información, que permiten a VHO y al CLIENTE verificar los avances que los
+servicios han generado. Dicha información se visualiza de manera individual como
+general. Únicamente VHO tendrá acceso al comportamiento individualizado de los
+9
+USUARIOS. Al igual que la base de datos, VHO se reserva el derecho de transferirla
+con el CLIENTE. Si éste último desea tener acceso a dicho registro, deberá realizar
+la solicitud antes establecida.
+De este modo, los datos personales brindados por el TITULAR se compartirán
+únicamente con el área de recursos humanos de la empresa proveniente y las
+empresas afiliadas a VHO, siempre y cuando no vaya en contra del artículo 11 de
+la Ley.
+Los datos brindados por el TITULAR no se utilizarán, en ninguna situación, para
+lucrar con ellos, asimismo no se dará acceso a tratamiento de terceros. En la
+eventualidad de que fuere útil a los efectos antes descritos en este aviso, compartir
+la información con terceros, dicha circunstancia será debidamente notificada a los
+usuarios y al cliente, quienes deberán actualizar su aceptación del aviso modificado
+para continuar gozando del acceso a los contenidos ofrecidos por VHO.
+La información que se recabe siempre será utilizada en beneficio del USUARIO,
+mejorando su experiencia y de esta misma forma, ofrecerle un mejor servicio.
+El RESPONSABLE, trata sus datos personales siempre en observancia a los
+principios de: licitud, consentimiento, información, calidad, finalidad, lealtad,
+proporcionalidad y responsabilidad; contemplados en el artículo 6 de la Ley.
+10
+VI. LAS OPCIONES Y MEDIOS QUE EL RESPONSABLE OFREZCA A LOS TITULARES
+PARA LIMITAR EL USO O DIVULGACIÓN DE LOS DATOS
+En VHO, contamos con las medidas de seguridad administrativas, técnicas y físicas
+que permiten proteger sus datos personales contra daño, pérdida, alteración,
+destrucción o el uso, acceso o tratamiento no autorizado; tal y como se estipula en
+el artículo 19 de la Ley.
+Si existiese algún tipo de filtración de sus datos en cualquier fase del tratamiento,
+que vulnerara de forma significativa algún derecho de carácter moral o patrimonial;
+es nuestra obligación informarlo lo antes posible, a través de su cuenta o correo
+electrónico proporcionado, con el fin de que usted tome las medidas adecuadas
+que considere pertinentes y en respeto a su derecho establecido en el artículo 20
+de la Ley.
+El TITULAR podrá limitar el uso o divulgación de sus datos personales enviando
+su solicitud al Departamento del RESPONSABLE a la dirección info@vitah.mx. En
+el entendido de que la solicitud no convierta en imposible la prestación del servicio
+en los términos pactados o convierta en ilusorias las estipulaciones del presente
+aviso de privacidad.
+11
+En caso de que su solicitud resulte procedente, el RESPONSABLE, se pondrá en
+contacto con el TITULAR en un término no mayor a diez días hábiles y le
+comunicará lo procedente.
+VII. DEL EJERCICIO DE LOS DERECHOS DE ACCESO, RECTIFICACIÓN,
+CANCELACIÓN Y OPOSICIÓN
+De conformidad con la Ley respecto al artículo 28, el TITULAR de los datos podrá
+en todo momento acceder a sus datos personales ya sea por medio de la página
+web del RESPONSABLE en el apartado de USUARIO o bien por medio del correo
+electrónico: soporte@vitah.mx
+Para cualquier rectificación, podrá el usuario realizarla mediante la página web del
+responsable o bien por el correo electrónico: soporte@vitah.mx. En caso de que el
+usuario desee hacer una rectificación, cancelación, u oposición mediante el correo
+electrónico deberá proporcionar su nombre completo, así como la descripción
+clara y precisa de los datos personales respecto de los cuales busca ejercer ya sea
+la rectificación, cancelación u oposición a los datos personales proporcionados por
+el USUARIO al RESPONSABLE al momento de su registro en la plataforma de
+conformidad con el artículo 29 del mismo ordenamiento citado anteriormente.
+El RESPONSABLE contará con un plazo máximo de 20 días hábiles, como se
+establece en la Ley en el artículo 32, contados a partir de la fecha en la que se
+recibió la solicitud por parte del TITULAR de los derechos. Si la rectificación,
+12
+cancelación u oposición solicitada por el TITULAR resulta procedente, el
+RESPONSABLE tendrá un plazo máximo de 15 días hábiles contados a partir de la
+fecha en la que se dio respuesta al TITULAR para realizar la acción solicitada. Los
+periodos antes mencionados podrán ser prorrogables por un plazo igual si está
+debidamente justificado y las circunstancias lo ameritan.
+En cuanto al simple acceso a la información, podrá realizarse mediante la página
+web del RESPONSABLE o bien por medio del correo electrónico:
+soporte@vitah.mx, si el USUARIO decide solicitar el acceso a la información por
+medio del correo electrónico deberá acreditar su identidad mediante los medios
+de seguridad que establece la responsable. Una vez acreditados estos datos, el
+RESPONSABLE otorgará la información solicitada por el TITULAR.
+El RESPONSABLE podrá negarle al TITULAR de los datos personales el acceso a
+la información o bien a realizar la rectificación o la cancelación o bien conceder la
+oposición en los siguientes supuestos, de conformidad con el artículo 34 de la
+citada Ley:
+1. Cuando el solicitante no sea el TITULAR de los datos personales;
+2. Cuando en su base de datos no se encuentren los datos personales del solicitante;
+3. Cuando se lesionen datos de un tercero;
+13
+4. Cuando exista un impedimento legal o resolución de una autoridad competente
+que restrinja el acceso, rectificación, cancelación u oposición a los datos
+personales; y
+5. Cuando la rectificación, cancelación u oposición haya sido previamente realizadas.
+En todos los casos mencionados anteriormente, el RESPONSABLE deberá
+comunicar al USUARIO las razones por las cuales negó la solicitud realizada.
+La solicitud de acceso a los datos personales por parte del TITULAR, debidamente
+acreditada su identidad, será gratuita, tal y como se expresa en el artículo 35 de la
+Ley.
+VIII. TRANSFERENCIA DE DATOS PERSONALES:
+El RESPONSABLE por medio del presente da aviso sobre la transferencia de datos
+personales que se llevarán a cabo con terceros con la finalidad de ofrecerle un
+mejor servicio. Dicha transferencia podrá ser realizada principalmente con
+empresas filiales de VHO, y corporaciones encargadas de la difusión de correos
+electrónicos, siempre conforme a lo establecido en el artículo 11 de la Ley.
+Los pagos por dichos servicios serán únicamente por medio de transferencia
+electrónica o depósito a la cuenta que proporcione VHO. Los datos personales
+14
+bancarios en ningún caso serán motivo de transferencia. El pago es externo a la
+plataforma de VHO.
+IX. CAMBIOS EN EL AVISO DE PRIVACIDAD
+El RESPONSABLE dará aviso a todos los USUARIOS y TITULARES de los datos
+personales sobre los cuales tienen control, cualquier cambio en el presente aviso
+de privacidad por medio de la página web de VHO, así como por medio de correo
+electrónico a todos los USUARIOS de la plataforma, estableciendo la fecha de
+entrada en vigor del nuevo aviso de privacidad y los cambios realizados.
+X. CREACIÓN DEL DEPARTAMENTO DE DATOS PERSONALES
+A fin de que el TITULAR tenga un canal de comunicación permanente y expedito,
+está a su disposición el Departamento de Datos Personales; el cual tendrá como
+principales finalidades las siguientes:
+a) Dar atención a sus solicitudes de Acceso, Rectificación, Cancelación y Oposición
+(ARCO);
+b) Recibir sus dudas acerca del presente aviso de privacidad; y
+c)Atender las contingencias en casos de filtraciones no autorizadas.
+Las solicitudes de Acceso, Acceso, Rectificación, Cancelación y Oposición (ARCO),
+deberán contener como mínimo:
+15
+1) El nombre del titular y domicilio u otro medio para comunicarle la respuesta a
+su solicitud;
+2) Los documentos que acrediten la identidad o, en su caso, la representación
+legal del TITULAR;
+3) La descripción clara y precisa de los datos personales respecto de los que se
+busca ejercer alguno de los derechos antes mencionados,
+4) Cualquier otro elemento o documento que facilite la localización de los datos
+personales.
+En el caso de solicitudes de rectificación de datos personales, el TITULAR
+deberá indicar, además de lo señalado en el párrafo anterior, las modificaciones
+a realizarse y aportar la documentación que sustente su petición.
+Causas por las que negaremos sus solicitudes de Acceso, Rectificación,
+Cancelación y Oposición (ARCO):
+a) Cuando el solicitante no sea el TITULAR de los datos personales, o el
+representante legal no esté debidamente acreditado para ello;
+b) Cuando en su base de datos, no se encuentren los datos personales del
+solicitante;
+c) Cuando se lesionen los derechos de un tercero;
+16
+d) Cuando exista un impedimento legal, o la resolución de una autoridad
+competente, que restrinja el acceso a los datos personales, o no permita la
+rectificación, cancelación u oposición de estos, y
+e) Cuando la rectificación, cancelación u oposición haya sido previamente
+realizada.
+De ser procedente (ARCO), le notificaremos dicha determinación a través del
+correo electrónico proporcionado, en un plazo no mayor a 20 días hábiles una
+vez recibida la información; si su solicitud fuese negada, enviaremos de igual
+forma dicha determinación, informando claramente los motivos de nuestra
+decisión.
+                </textarea>
+                <label><input class="form-check-input" type="checkbox" ng-model="aceptoAvisoPrivacidad" ng-click="aceptarAviso(aceptoAvisoPrivacidad)">Acepto el <a href="auth/files/aviso_privacidad.pdf" download>Aviso de privacidad</a> y los <a href="auth/files/terminos_condiciones.pdf" download>T&eacute;rminos y Condiciones</a>.</label>
+                <div id="button-enviar">
+                    <a class="btn btn-primary mt-2" href="#" rel="modal:close" ng-click="reiniciarId()">Acepto</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-1 col-lg-1 col-md-12 col-sm-12 col-xs-1">
+        </div>
+    </div>
+</div>

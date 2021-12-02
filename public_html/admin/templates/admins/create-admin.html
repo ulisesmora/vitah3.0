@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="admin-title pt-5">
+        <h1>Agregar administrador</h1>
+    </div>
+    <div class="formulario mt-5 p-5 col-12">
+        <!--<h2 style="color:white; border-bottom: 1px solid white;"><strong>Cliente</strong></h2>-->
+        <form class='pt-5'>
+            <div id="datos-admin" class="pb-3">
+                <div class="form-group">
+                    <!--<div class="row">-->
+                    <div class="mb-3">
+                        <label>Nombre * </label>
+                        <input type="text" class="form-control" ng-model="admin.nombre" placeholder="Nombre" required>
+                    </div>
+                    <div class="mb-3">
+                        <label>Primer apellido *</label>
+                        <input type="text" class="form-control" ng-model="admin.primerApellido" placeholder="Primer apellido" required>
+                    </div>
+                    <div class="mb-3">
+                        <label>Segundo apellido *</label>
+                        <input type="text" class="form-control" ng-model="admin.segundoApellido" placeholder="Segundo apellido" required>
+                    </div>
+                    <div class="mb-3">
+                        <label>Tipo de cuenta *</label>
+                        <select class="form-control" name="repeatSelect" id="repeatSelect" ng-model="admin.tipo">
+                            <option ng-repeat="option in tiposAdmins" value="{{option.id}}">{{option.admin}}</option>
+                        </select>
+                    </div>
+
+                    <!--</div>-->
+                    <!--                </div>
+                                    <div class="form-group">-->
+                    <!--<div class="row">-->
+                    <div class="mb-3">
+                        <label>Email *</label>
+                        <input type="email" class="form-control" ng-model="admin.email" placeholder="Email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label>Contraseña *</label>
+                        <input type="password" class="form-control" ng-model="admin.password" placeholder="Contraseña" minlength="6" required>
+                    </div>
+                    <!--</div>-->
+                </div>
+                <div class="col-3">
+                    <button class="btn btn-primary btn-lg" ng-click="crearAdmin(admin)" id="button-enviar"><i class="fas fa-save"></i>&nbsp;Guardar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

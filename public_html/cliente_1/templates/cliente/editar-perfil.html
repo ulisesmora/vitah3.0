@@ -1,0 +1,58 @@
+<div class="container">
+    <div class="admin-title pt-5">
+        <h1>Editar datos</h1>
+    </div>
+    <div class="formulario mt-5 mt-sm-2 p-5 mb-5">
+        <!--<h2 style="color:white; border-bottom: 1px solid white;"><strong>Cliente</strong></h2>-->
+        <form class='pt-2'>
+            <div class="form-group">
+                <div class="row pb-xl-4 pb-lg-4 pb-md-4 pb-sm-4">
+                    <label class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">Nombre* </label>
+                    <input type="text" class="form-control col-xl-8 col-lg-8 col-md-8 col-sm-12 col-xs-12" ng-model="empleado.nombre" placeholder="Nombre">
+                </div>
+<!--            </div>
+            <div class="form-group">-->
+                <div class="row pb-xl-4 pb-lg-4 pb-md-4 pb-sm-4">
+                    <label class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">Primer apellido* </label>
+                    <input type="text" class="form-control col-xl-8 col-lg-8 col-md-8 col-sm-12 col-xs-12" ng-model="empleado.primerApellido" placeholder="Primer apellido">
+                </div>
+                <div class="row pb-xl-4 pb-lg-4 pb-md-4 pb-sm-4">
+                    <label class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">Segundo apellido*</label>
+                    <input type="text" class="form-control col-xl-8 col-lg-8 col-md-8 col-sm-12 col-xs-12" ng-model="empleado.segundoApellido" placeholder="Segundo apellido">
+                </div>
+                <div class="row pb-xl-4 pb-lg-4 pb-md-4">
+                    <label class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">Fecha de nacimiento*</label>
+                    <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 col-xs-12">
+                        <small>D&iacute;a</small>
+                        <input type="text" class="form-control"  maxlength="2" ng-model="empleado.diaNacimiento" placeholder="Día de Nacimiento" numbers-only allowDecimals="false">
+                        <small>dd</small>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                        <small>Mes</small> 
+                        <!--<input type="text" class="form-control" ng-model="empleado.mesNacimiento" placeholder="Fecha de Nacimiento">-->
+                        <select class="form-control" name="repeatSelect" id="repeatSelect" ng-model="empleado.mesNacimiento">
+                            <option ng-repeat="option in meses" value="{{option.id}}">{{option.mes}}</option>
+                        </select>
+                        <small>mm</small>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">             
+                        <small>Año</small> 
+                        <input type="text" class="form-control" maxlength="4" ng-model="empleado.anioNacimiento" placeholder="Año de Nacimiento" numbers-only allowDecimals="false">
+                        <small>aaaa</small> 
+                    </div>
+                </div>
+                <div class="row pb-xl-4 pb-lg-4 pb-md-4">
+                    <label class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">Tel&eacute;fono*</label>
+                    <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                        <input type="text" class="form-control col-12" ng-model="empleado.telefono" placeholder="Teléfono" numbers-only allowDecimals="false">
+                        <small>Este campo sólo admite números</small>
+                    </div>
+                </div>
+                <div class="row pt-2 float-xl-right">
+                    <a ui-sref="main.home" class="m-2">Cancelar</a>&nbsp;&nbsp;&nbsp;
+                    <button class="btn btn-primary" ng-click="editarDatos(empleado)"><i class="fas fa-save"></i>&nbsp;Guardar</button>
+                </div>
+            </div> 
+        </form>
+    </div>
+</div>

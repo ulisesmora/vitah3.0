@@ -1,0 +1,173 @@
+<div class="container-form" id="main">
+    <div class="row col-12" id="header-login">
+        <div class="col-xl-4 col-lg-4 col-md-3 col-sm-1"></div>
+        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-10 justify-content-center">
+            <a ui-sref="main.login"><img src="auth/images/logo_vitah_white.png"  class="img-fluid" alt="Vitah logo"></a>
+        </div>
+        <div class="col-xl-4 col-lg-4 col-md-3 col-sm-12"></div>
+    </div>
+    <div class="row col-12">
+        <div class="col-xl-1 col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
+        <div id="form" class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xs-10">
+            <div class="row">
+                <div class="col-xl-6 col-sm-12 login-user">
+                    <div class="text-center">
+                        <h2>Inicia sesi&oacute;n</h2>
+                        <br>
+                        <br>
+                    </div>
+                    <form class="">
+                        <div class="form-group">
+                            <div class="p-xl-3 p-lg-3 p-md-3 text-center">
+                                <label class="col-xl-3 col-lg-3 col-md-3 col-xs-12">Usuario</label>
+                                <input type="email" class="form-control col-xl-12 col-lg-12 col-md-12 col-xs-12" ng-model="cliente.email" placeholder="Usuario">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="p-xl-3 p-lg-3 p-md-3 text-center">
+                                <label class="col-xl-3 col-lg-3 col-md-3 col-xs-12">Contraseña</label>
+                                <input type="password" class="form-control col-xl-12 col-lg-12 col-md-12 col-xs-12" ng-model="cliente.password" placeholder="Contraseña">
+                            </div>
+                        </div>
+                        <div class="text-center p-1">
+                            <button class="btn btn-primary pl-5 pr-5" ng-click="loginCliente(cliente.email, cliente.password)">Entrar</button>
+                            <br>
+                            <small class="col-12" style="text-align: right;">¿Olvidaste tu contraseña? Recup&eacute;rala <a ui-sref="main.recuperar-password">aquí</a></small>
+                            <br>
+                            <br>
+                            <label>¿Tienes el código proporcionado por tu empresa?</label><br><a ui-sref="main.registro-cliente" class="btn btn-outline-primary">Reg&iacute;strate aqu&iacute;</a>
+                        </div>
+                        <div class="row m-5">
+                            <div class="col-md-6 col-xs-12 pt-2">
+                                <button class="btn-fb p-2" ng-click="iniciarSesionFacebook()">
+                                    <i class="fab fa-facebook"></i> &nbsp;Inicia sesi&oacute;n con Facebook
+                                    <br>
+                                </button>
+                            </div>
+                            <div class="col-md-6 col-xs-12 pt-2">
+                                <button class="btn-gm p-2" ng-click="iniciarSesionGmail()">
+                                    <i class="fab fa-google"></i> &nbsp;Inicia sesi&oacute;n con Gmail
+                                    <br>
+                                </button>
+                            </div>
+
+                        </div>
+                    </form>
+                    <div class="col-12 text-center mb-5"> 
+                        <small><a ui-sref="main.login">Cliente</a>&nbsp;|&nbsp;<a ui-sref="main.login-admin">Administrador</a></small>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-sm-12 register-user">
+                    <div class="text-center">
+                        <h2>¿No tienes cuenta?</h2>
+                        <h3>¡Crea una! Es f&aacute;cil y r&aacute;pido</h3>
+                    </div>
+                    <form class="">
+                        <div class="form-group">
+                            <div class="p-xl-3 p-lg-3 p-md-3 text-center">
+                                <label class="col-xl-4 col-lg-4 col-md-4 col-xs-12">Usuario</label>
+                                <input type="email" class="form-control col-xl-12 col-lg-12 col-md-12 col-xs-12 col-xs-12" ng-model="clienteRegistro.email" placeholder="Usuario">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="p-xl-3 p-lg-3 p-md-3 text-center">
+                                <label class="col-xl-4 col-lg-4 col-md-4 col-xs-12">Contraseña</label>
+                                <input type="password" class="form-control col-xl-12 col-lg-12 col-md-12 col-xs-12 col-xs-12" ng-model="clienteRegistro.password" placeholder="Contraseña">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="p-xl-3 p-lg-3 p-md-3 text-center">
+                                <label>Confirmar contraseña*</label>
+                                <input type="password" class="form-control" ng-model="clienteRegistro.passwordRepeat" placeholder="Confirmar contraseña">
+                            </div>
+                            <div ng-if="clienteRegistro.password !== clienteRegistro.passwordRepeat">
+                                <div class=""></div>
+                                <label class="" style="color:red">Las contraseñas no coinciden</label>
+                            </div>
+                        </div>
+                        <div class="text-center p-1">
+                            <button class="btn btn-primary pl-5 pr-5" ng-click="crearCliente(clienteRegistro)">Continuar</button>
+                        </div>
+                    </form>
+                    <div class="row m-5">
+                        <div class="col-md-6 col-xs-12 pt-2">
+                            <button class="btn-fb p-2" ng-click="crearCuentaFacebook()">
+                                <i class="fab fa-facebook"></i> &nbsp;Registrate con Facebook
+                                <br>
+                                <small>No se compartir&aacute; nada sin tu permiso</small>
+                            </button>
+                        </div>
+                        <div class="col-md-6 col-xs-12 pt-2">
+                            <button class="btn-gm p-2" ng-click="crearCuentaGmail()">
+                                <i class="fab fa-google"></i> &nbsp;Registrate con Gmail
+                                <br>
+                                <small>No se compartir&aacute; nada sin tu permiso</small>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" id="datos-personales">
+                <div class="col-xl-12 col-sm-12">
+                    <div>
+                        <div class="form-group row">
+                            <!--<div class="">-->
+                            <div class="col-12">
+                                <label>Nombre * </label>
+                                <input type="text" class="form-control ng-pristine ng-untouched ng-valid ng-empty" ng-model="dataUser.nombre" placeholder="Nombre">
+                            </div>
+                            <div class="row col-12 mt-2">
+                                <div class="col-6">
+                                    <label>Primer apellido *</label>
+                                    <input type="text" class="form-control ng-pristine ng-untouched ng-valid ng-empty" ng-model="dataUser.primerApellido" placeholder="Primer apellido">
+                                </div>
+                                <div class="col-6">
+                                    <label>Segundo apellido *</label>
+                                    <input type="text" class="form-control ng-pristine ng-untouched ng-valid ng-empty" ng-model="dataUser.segundoApellido" placeholder="Segundo apellido">
+                                </div>
+                            </div>
+                            <!--</div>-->
+                        </div>
+                        <!--                        </div>
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                <div class="row">-->
+                        <div class="form-group row">
+                            <div class="col-12 row">
+                                <div class="col-6">
+                                    <label>Teléfono </label>
+                                    <input type="text" class="form-control ng-pristine ng-untouched ng-valid ng-isolate-scope ng-empty" ng-model="dataUser.telefono" placeholder="Teléfono" numbers-only="" allowdecimals="false">
+                                </div>
+                                <!--                            </div>
+                            <div class="col-12">-->
+                                <div class="col-6">
+                                    <label>Email*</label>
+                                    <input type="email" class="form-control ng-pristine ng-untouched ng-valid ng-empty ng-valid-email" ng-model="dataUser.email" placeholder="Email" disabled>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row col-12">
+                        <div class="col-8">
+                        </div>
+                        <div class="col-4 row">
+                            <!--<button class="btn btn-primary btn-lg" ng-click="irContrato(cliente.nombre_contacto_principal, cliente.primer_apellido_contacto_principal, cliente.segundo_apellido_contacto_principal, cliente.email_contacto_principal, cliente.telefono_contacto_principal)">Siguiente</button>-->
+                            <button class="btn btn-primary btn-lg" ng-click="siguientePaso(dataUser)"><i class="fas fa-save"></i>&nbsp;Guardar</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div id="costo-subscripcion">
+                <h3>El costo de la subscripci&oacute;n es de $40 MXN con el cual tendras acceso a contenido exclusivo de Vitah</h3>
+                <button ng-click="subscribir()" class=" btn btn-primary">Suscribir</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-1 col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
+</div>
+
+
+<div id="loader">
+    <iframe src="https://embed.lottiefiles.com/animation/8428"></iframe>
+</div>

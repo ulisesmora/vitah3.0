@@ -1,0 +1,248 @@
+<div class="container">
+    <div class="admin-title pb-5 pt-5">
+        <h1>Editar cliente</h1>
+    </div>
+    <!--<div ng-if="cliente.length !== 0">-->
+    <div class="col-12 row text-center m-2" id="menuEditar">
+        <div class="col-3"> 
+            <a class="menu-edicion-cliente active-menu" href="" ng-click="irA('datos-empresa', 'datos-contacto', 'datos-contrato', 'eliminar-empleado')">Datos de la empresa</a>
+        </div>
+        <div class="col-3"> 
+            <a class="menu-edicion-cliente" href="" ng-click="irA('datos-contacto', 'datos-empresa', 'datos-contrato', 'eliminar-empleado')">Datos del cliente</a>
+        </div>
+        <div class="col-3 "> 
+            <a class="menu-edicion-cliente" href="" ng-click="irA('datos-contrato', 'datos-empresa', 'datos-contacto', 'eliminar-empleado')">Datos del contrato</a>
+        </div>
+        <div class="col-3 "> 
+            <a class="menu-edicion-cliente" href="" ng-click="irA('eliminar-empleado', 'datos-empresa', 'datos-contacto', 'datos-contrato')">Lista de empleados</a>
+        </div>
+    </div>
+    <div class="formulario mt-5 p-5 col-12">
+        <h2 style="color:white; border-bottom: 1px solid white;"><strong>Cliente</strong></h2>
+        <form class='pt-5'>
+            <div id="datos-empresa" class="pb-3">
+                <h3 class="mb-4">Datos de la empresa</h3>
+                <div class="form-group">
+                    <!--<div class="row">-->
+                    <label>Nombre de la empresa *</label>
+                    <input type="text" class="form-control" ng-model="cliente.nombreEmpresa" placeholder="Nombre empresa">
+                    <!--</div>-->
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-6">
+                            <label>Raz&oacute;n social </label>
+                            <input type="text" class="form-control" ng-model="cliente.razonSocial" placeholder="Razón social">
+                        </div>
+                        <div class="col-6">
+                            <label>Sitio web </label>
+                            <input type="text" class="form-control" ng-model="cliente.sitioWeb" placeholder="Sitio web">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Domicilio </label>
+                    <input type="text" class="form-control" ng-model="cliente.domicilio" placeholder="Domicilio">
+                </div>
+                <!--<button class="btn btn-primary btn-lg float-right" ng-click="irDatosPersonales(cliente.nombreEmpresa)">Siguiente</button>-->
+            </div>
+            <div id="datos-contacto">
+                <h3 class="mb-4">Datos contacto principal</h3>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-4">
+                            <label>Nombre * </label>
+                            <input type="text" class="form-control" ng-model="cliente.nombreContacto" placeholder="Nombre">
+                        </div>
+                        <div class="col-4">
+                            <label>Primer apellido *</label>
+                            <input type="text" class="form-control" ng-model="cliente.primerApellidoContacto" placeholder="Primer apellido">
+                        </div>
+                        <div class="col-4">
+                            <label>Segundo apellido *</label>
+                            <input type="text" class="form-control" ng-model="cliente.segundoApellidoContacto" placeholder="Segundo apellido">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-4">
+                            <label>Email *</label>
+                            <input type="email" class="form-control" ng-model="cliente.emailContacto" placeholder="Email">
+                        </div>
+                        <div class="col-4">
+                            <label>Tel&eacute;fono *</label>
+                            <input type="text" class="form-control" ng-model="cliente.telefonoContacto" placeholder="Teléfono" numbers-only allowDecimals="false">
+                        </div>
+                        <div class="col-4">
+                            <label>Puesto </label>
+                            <input type="text" class="form-control" ng-model="cliente.puestoContacto" placeholder="Puesto desempeñado" >
+                        </div>
+                    </div>
+                </div>
+                <div class="row col-12">
+                    <div class="col-9">
+                    </div>
+                    <div class="col-3">
+                        <!--<a href="" ng-click="atras('datos-empresa', 'datos-contacto')">Atr&aacute;s</a>-->
+                        <!--<label>&nbsp; &nbsp;</label>-->
+                        <!--<button class="btn btn-primary btn-lg" ng-click="irContrato(cliente.nombreContacto, cliente.primerApellidoContacto, cliente.segundoApellidoContacto, cliente.emailContacto, cliente.telefonoContacto)">Siguiente</button>-->
+                    </div>
+                </div>
+            </div>
+            <div id="datos-contrato">
+                <h3 class="mb-4">Requisitos de ingreso a los m&oacute;dulos</h3>
+                <div class="form-group">
+                    <label>Usuarios disponibles a registrar bajo el código empresarial *</label>
+                    <input type="text" class="form-control" ng-model="cliente.numeroUsuariosEmpresa" placeholder="Número de usuarios" numbers-only allowDecimals="false">
+                </div>
+<!--                <div class="form-group">
+                    <label>Selecciona los módulos contratados por la empresa: </label>
+                    <div class="row col-12">
+                        <div class="col-6">
+                            <select class="col-12" name="multipleSelect" id="multipleSelect"   multiple>
+                                <option ng-repeat="modulo in modulos" ng-click="seleccionarModulos(modulo.nombre, modulo.id);">{{modulo.nombre}}</option>
+                            </select>
+                        </div>
+                        <div class="col-1">&nbsp;</div>
+                        <div class="col-5">
+                            <table class="table table-striped table-dark">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">M&oacute;dulo</th>
+                                        <th scope="col"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="moduloSeleccionado in cliente.modulosContratados">
+                                        <td>{{moduloSeleccionado.nombre}}</td>
+                                        <td><button class="btn btn-danger" ng-click="eliminarModulo(moduloSeleccionado.moduloId)"><i class="fas fa-trash-alt" style="color:white;"></i></button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>-->
+<!--                <div class="form-group">
+                    <label>¿Qué días podrán acceder los usuarios? *</label>
+                    <div class='row col-12'>
+                        <div class='row col-3'>
+                            <input type="checkbox" class="form-control col-1" ng-model="cliente.diasAcceso[1]"><label class="col-11">Lunes</label>
+                            <input type="checkbox" class="form-control col-1" ng-model="cliente.diasAcceso[2]"><label class="col-11">Martes</label>
+                        </div>
+                        <div class='row col-3'>
+                            <input type="checkbox" class="form-control col-1" ng-model="cliente.diasAcceso[3]"><label class="col-11">Mi&eacute;rcoles</label>
+                            <input type="checkbox" class="form-control col-1" ng-model="cliente.diasAcceso[4]"><label class="col-11">Jueves</label>
+                        </div>
+                        <div class='row col-3'>
+                            <input type="checkbox" class="form-control col-1" ng-model="cliente.diasAcceso[5]"><label class="col-11">Viernes</label>
+                            <input type="checkbox" class="form-control col-1" ng-model="cliente.diasAcceso[6]"><label class="col-11">S&aacute;bado</label>
+                        </div>
+                        <div class='row col-3'>
+                            <input type="checkbox" class="form-control col-1" ng-model="cliente.diasAcceso[0]"><label class="col-11">Domingo</label>
+                        </div>
+                    </div>
+                </div>-->
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-6" >
+                            <label>Fecha inicio de contrato *</label>
+                            <div class="row" ng-if="editarFechaInicio === false">
+                                <input type="text" class="form-control col-9" ng-model="cliente.fechaInicioContrato" readonly>
+                                <button class="btn btn-info" ng-click="cambiarFechaInicio(true)"><i class="fas fa-edit" style="color:white;"></i></button>
+                            </div>
+                            <div class="row col-12" ng-if="editarFechaInicio === true">
+                                <div class="col-3">
+                                    <small>D&iacute;a</small>
+                                    <input type="text" class="form-control"  maxlength="2" ng-model="cliente.diaInicioContrato" placeholder="dd" numbers-only allowDecimals="false">
+                                    <small>dd</small>
+                                </div>
+                                <div class="col-4">
+                                    <small>Mes</small> 
+                                    <select class="form-control" name="repeatSelect" id="repeatSelect" ng-model="cliente.mesInicioContrato">
+                                        <option ng-repeat="option in meses" value="{{option.id}}">{{option.mes}}</option>
+                                    </select>
+                                </div>
+                                <div class="col-4">             
+                                    <small>Año</small> 
+                                    <input type="text" class="form-control" maxlength="4" ng-model="cliente.anioInicioContrato" placeholder="aaaa" numbers-only allowDecimals="false">
+                                    <small>aaaa</small> 
+                                </div>
+                                <div class="col-1">
+                                    <small>&nbsp;</small> 
+                                    <button class="btn btn-danger" ng-click="cambiarFechaInicio(false)"><i class="fas fa-window-close" style="color:white;"></i></button>
+                                    <small></small> 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <label>Fecha expiración de contrato *</label>
+                            <div class="row" ng-if="editarFechaFinal === false">
+                                <input type="text" class="form-control col-9" ng-model="cliente.fechaFinalContrato" readonly>
+                                <button class="btn btn-info" ng-click="cambiarFechaFinal(true)"><i class="fas fa-edit" style="color:white;"></i></button>
+                            </div>
+                            <div class=" col-12 row" ng-if="editarFechaFinal === true">
+                                <div class="col-3">
+                                    <small>D&iacute;a</small>
+                                    <input type="text" class="form-control"  maxlength="2" ng-model="cliente.diaFinContrato" placeholder="dd" numbers-only allowDecimals="false">
+                                    <small>dd</small>
+                                </div>
+                                <div class="col-4">
+                                    <small>Mes</small> 
+                                    <select class="form-control" name="repeatSelect" id="repeatSelect" ng-model="cliente.mesFinContrato">
+                                        <option ng-repeat="option in meses" value="{{option.id}}">{{option.mes}}</option>
+                                    </select>
+                                </div>
+                                <div class="col-4">             
+                                    <small>Año</small> 
+                                    <input type="text" class="form-control" maxlength="4" ng-model="cliente.anioFinContrato" placeholder="aaaa" numbers-only allowDecimals="false">
+                                    <small>aaaa</small> 
+                                </div>
+                                <div class="col-1">
+                                    <small>&nbsp;</small>
+                                    <button class="btn btn-danger" ng-click="cambiarFechaFinal(false)"><i class="fas fa-window-close" style="color:white;"></i></button>
+                                    <small>&nbsp;</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+<!--                <div class="form-group">
+                    <label>¿Cu&aacute;ntos videos por d&iacute;a puede ver el usuario? *</label>
+                    <input type="text" class="form-control" ng-model="cliente.videosAcceso" placeholder="Número de videos" numbers-only allowDecimals="false">
+                </div>-->
+                <div class="text-right p-1">
+                </div>
+            </div>
+            <div id="eliminar-empleado">
+                <table class="table table-striped table-dark">
+                    <thead>
+                        <tr>
+                            <th scope="col">Empleado</th>
+                            <th scope="col">Email</th>
+                            <!--<th scope="col"></th>-->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="empleado in empleados">
+                            <td>{{empleado.nombre}}&nbsp;{{empleado.primerApellido}}&nbsp;{{empleado.segundoApellido}}</td>
+                            <td>{{empleado.email}}</td>
+                            <!--<td><button class="btn btn-danger" ng-click="eliminarEmpleado(empleado.empleadoId)"><i class="fas fa-trash-alt" style="color:white;"></i></button></td>-->
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="row col-12">
+                <div class="col-10">
+                </div>
+                <div class="col-2">
+                    <button class="btn btn-primary btn-lg" ng-click="actualizarCliente(cliente)"  style="font-size: 15px;"><i class="fas fa-save"></i>&nbsp;Guardar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!--    </div>
+        <div ng-if="cliente.length === 0">
+            No existe este usuario
+        </div>-->
+</div>

@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="admin-title pt-5">
+        <h1>Descargar m&eacute;tricas por m&oacute;dulo</h1>
+    </div>
+    <div class="col-12 text-center p-5" id="modulo">
+        <button class="btn btn-lg btn-primary" ng-click="descargarMetricasModulos()"> Descargar m&eacute;tricas de los m&oacute;dulos <i class="fas fa-download"></i></button>
+        <button class="btn btn-lg btn-info" ng-click="descargarMetricasEmpresas()"> Descargar m&eacute;tricas de las empresas <i class="fas fa-download"></i></button>
+        <button class="btn btn-lg btn-info" ng-click="descargarTable()"> Ds <i class="fas fa-download"></i></button>
+    </div>
+    <div>
+        <!--{{empresas}}-->
+        <table id="tabla-empresa" border="1" ng-repeat="empresa in empresas">
+            <thead>
+                <tr style="font-weight: bold;">
+                    <th colspan="3" >{{empresa.nombreEmpresa}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="empleado in empresa.empleado">
+                    <th>{{empleado.nombreEmpleado}}</th>
+                    <th>{{empleado.primerApellido}}</th>
+                    <th>{{empleado.segundoApellido}}</th>
+                </tr>
+                <tr>
+                    <th>&nbsp;</th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

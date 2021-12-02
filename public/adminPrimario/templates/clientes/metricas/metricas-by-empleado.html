@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="admin-title pt-5">
+        <h1>{{empleado.nombre}}&nbsp;{{empleado.primerApellido}}&nbsp;{{empleado.segundoApellido}}</h1><br>
+        <h3>Empresa: {{empresa.nombreEmpresa}}</h3><br>
+        <h3>Modulo: {{modulo.nombre}}</h3><br>
+    </div>
+    <table class="table table-striped table-light p-5" id="tabla-redondeada">
+            <thead>
+                <tr>
+                    <th scope="col">Video</th>
+                    <th scope="col">N&uacute;mero de vistas</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="p-5" ng-mouseover="verIconos = true;" ng-mouseleave="verIconos = false;" ng-repeat="video in videos">
+                    <td>{{video.nombre}}</td>
+                    <td>{{video.vistas}}</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+</div>

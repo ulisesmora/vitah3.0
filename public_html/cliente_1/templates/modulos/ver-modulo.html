@@ -1,0 +1,45 @@
+<div class="container">
+    <div id="modulo">
+        <div class="admin-title p-5">
+            <h1>{{modulo.nombre}}</h1>
+        </div>
+        <!--<div class="p-4">-->
+        <p>{{modulo.descripcion}}</p>
+        <!--</div>-->
+        <div class="p-4" ng-if='accesoVideos === true'>
+            <table class="table table-striped table-light p-5" id="tabla-redondeada">
+                <thead>
+                    <tr>
+                        <th scope="col">Experiencia</th>
+                        <th scope="col" class="text-center">Visto</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="video in videos">
+                        <td><a ui-sref="{{video.state}}">{{video.video}}</a></td>
+                        <td class="text-center"><i class="{{video.icon}}"></i></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="p-4" ng-if='accesoVideos === false'>
+            <div class="alert alert-warning" role="alert">
+                <h5>Ya has tenido tus ocho experiencias mensuales. Regresa el <strong>{{empresa.fechaActualString}}</strong> para m&aacute;s experiencias</h5>
+            </div>
+            <table class="table table-striped table-light p-5" id="tabla-redondeada">
+                <thead>
+                    <tr>
+                        <th scope="col">Experiencia</th>
+                        <th scope="col" class="text-center">Visto</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="video in videos">
+                        <td><label>{{video.video}}</label></td>
+                        <td class="text-center"><i class="{{video.icon}}"></i></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

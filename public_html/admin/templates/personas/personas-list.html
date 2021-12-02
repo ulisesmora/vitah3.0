@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="admin-title pt-5 pb-5">
+        <h1>Clientes activos</h1>
+    </div>
+    <div ng-if="clientes.length !== 0">
+        <table class="table table-striped table-light p-5" id="tabla-redondeada">
+            <thead>
+                <tr>
+                    <th scope="col">Cliente</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">¿La cuenta se encuentra activa?</th>
+                    <th scope="col">Fecha de contrataci&oacute;n</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="p-5" ng-mouseover="verIconos = true;" ng-mouseleave="verIconos = false;" ng-repeat="persona in personas">
+                    <td>{{persona.nombre}} {{persona.primerApellido}} {{persona.segundoApellido}}</td>
+                    <td>{{persona.email}}</td>
+                    <td>{{persona.cuentaActiva}}</td>
+                    <td>{{persona.fechaInicio}}</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div ng-if="clientes.length === 0">
+        No hay clientes que mostrar.
+    </div>
+</div>

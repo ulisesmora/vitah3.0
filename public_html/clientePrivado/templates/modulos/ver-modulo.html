@@ -1,0 +1,88 @@
+<div class="container-home-cliente">
+    <div id="modulo" class="">
+        <div class="admin-title pt-5">
+            <h1>{{modulo.nombre}}</h1>
+        </div>
+        <p>{{modulo.descripcion}}</p>
+        <div ng-repeat="seccion in secciones">
+            <div ng-if="seccion.visto === true">
+
+
+                <div class="row justify-content-center">
+                    <div ng-repeat="video in seccion" class="" >
+                        <!--<div ng-repeat="video in seccion" class="col-3">-->
+
+                <h1 ng-if=" $index % 4 == 0" >Modulo {{($index/4) +1}}  </h1>
+
+                <h1 ng-if=" $index % 4 != 0" style="opacity: 0;" >Modulo   </h1>
+                        <div ng-mouseover="open = true" ng-mouseleave="open = false" ng-click="irAVideo(video)" class="card-video col-12" style="cursor: pointer">
+                            <div class="container-image-video" >
+                                <img  ng-src="{{video.imageURI}}"/>
+                                <div class="text-video">
+                                    <div class="centered"><h5>{{video.video}}</h5></div>
+                                </div>
+                            </div>
+                            <div id="panel-desplegable" ng-show="open">
+                                <div class="panel-body pt-4 pb-4 pl-1 pr-1">
+                                    <h5>{{video.video}}</h5>
+                                    <label>{{video.duracion}} minutos</label>
+                                    <p>{{video.descripcion}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="rating-container" ng-if="video.see === true">
+                            <div>
+                                <label class="like">
+                                    <input ng-click="clickLike(video)" type="radio" class="super-happy" id="super-happy2" ng-value="true" ng-model="video.like"/>
+                                    <svg viewBox="0 0 24 24"><path d="M23,10C23,8.89 22.1,8 21,8H14.68L15.64,3.43C15.66,3.33 15.67,3.22 15.67,3.11C15.67,2.7 15.5,2.32 15.23,2.05L14.17,1L7.59,7.58C7.22,7.95 7,8.45 7,9V19A2,2 0 0,0 9,21H18C18.83,21 19.54,20.5 19.84,19.78L22.86,12.73C22.95,12.5 23,12.26 23,12V10M1,21H5V9H1V21Z" /></svg>
+                                </label>
+                                <label class="dislike">
+                                    <input ng-click="clickDislike(video)" type="radio" class="super-sad" id="super-sad2" ng-value="false" ng-model="video.like"/>
+                                    <svg viewBox="0 0 24 24"><path d="M19,15H23V3H19M15,3H6C5.17,3 4.46,3.5 4.16,4.22L1.14,11.27C1.05,11.5 1,11.74 1,12V14A2,2 0 0,0 3,16H9.31L8.36,20.57C8.34,20.67 8.33,20.77 8.33,20.88C8.33,21.3 8.5,21.67 8.77,21.94L9.83,23L16.41,16.41C16.78,16.05 17,15.55 17,15V5C17,3.89 16.1,3 15,3Z" /></svg>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="video-no-visto" ng-if="video.see !== true">
+                            <label>A&uacute;n no has visto este video</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--        <div class="p-4" ng-if='accesoVideos === true'>
+                <table class="table table-striped table-light p-5" id="tabla-redondeada">
+                    <thead>
+                        <tr>
+                            <th scope="col">Experiencia</th>
+                            <th scope="col" class="text-center">Visto</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="video in videos">
+                            <td><a ui-sref="{{video.state}}">{{video.video}}</a></td>
+                            <td class="text-center"><i class="{{video.icon}}"></i></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="p-4" ng-if='accesoVideos === false'>
+                <div class="alert alert-warning" role="alert">
+                    <h5>Ya has tenido tus ocho experiencias mensuales. Regresa el <strong>{{empresa.fechaActualString}}</strong> para m&aacute;s experiencias</h5>
+                </div>
+                <table class="table table-striped table-light p-5" id="tabla-redondeada">
+                    <thead>
+                        <tr>
+                            <th scope="col">Experiencia</th>
+                            <th scope="col" class="text-center">Visto</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="video in videos">
+                            <td><label>{{video.video}}</label></td>
+                            <td class="text-center"><i class="{{video.icon}}"></i></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>-->
+</div>

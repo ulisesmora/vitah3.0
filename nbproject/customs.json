@@ -1,0 +1,11 @@
+{
+    "elements": {},
+    "attributes": {
+        "ac-model": {
+            "context": "select"
+        },
+        "ui-sref": {
+            "context": "a"
+        }
+    }
+}

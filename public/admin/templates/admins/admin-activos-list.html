@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="admin-title pt-5 pb-5">
+        <h1>Administradores activos</h1>
+    </div>
+    <div ng-if="administradores.length !== 0">
+        <table class="table table-striped table-light p-5" id="tabla-redondeada">
+            <thead>
+                <tr>
+                    <th scope="col">Administrador</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Tipo administrador</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="p-5" ng-repeat="admin in administradores">
+                    <td>{{admin.nombre}}</td>
+                    <td>{{admin.email}}</td>
+                    <td>{{admin.tipoAdmin}}</td>
+                    <td><button data-title="Eliminar cliente" class="btn btn-danger" ng-click="eliminarAdmin(admin.id)"><i class="fas fa-trash-alt" style="color:white;"></i></button></td>
+                    <td><button data-title="Editar cliente" class="btn btn-light" ng-click="editarAdmin(admin.id)"><i class="fas fa-user-edit" style="color:white;"></i></button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div ng-if="administradores.length === 0">
+        No hay clientes que mostrar.
+    </div>
+    {{administradores.nombre}}
+</div>

@@ -1,0 +1,40 @@
+<div class="container-form pt-5 pb-5">
+    <div class="row" id="header-login">
+        <div class="col-xl-4 col-lg-4 col-md-3 col-sm-3 col-xs-12"></div>
+        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-12">
+            <a ui-sref="main.login"><img src="auth/images/logo_vitah_white.png"  class="img-fluid" alt="Vitah logo"></a>
+        </div>
+        <div class="col-xl-4 col-lg-4 col-md-3 col-sm-3 col-xs-12"></div>
+    </div>
+    <div class="row">
+        <div class="col-xl-3 col-lg-3 col-md-2 col-sm-1 col-xs-1"></div>
+        <div id="form" class="col-xl-7 col-lg-6 col-md-8 col-sm-10 col-xs-10">
+            <div class="text-center p-1">
+                <h2>Administrador</h2>
+            </div>
+            <form class="">
+                <div class="form-group p-1">
+                    <div class="row p-xl-3 p-lg-3 p-md-3">
+                        <label class="col-xl-4 col-lg-4 col-md-4 col-xs-12">Usuario</label>
+                        <input type="email" class="form-control col-xl-8 col-lg-8 col-md-8 col-xs-12" ng-model="user.email" placeholder="Usuario" required/>
+                    </div>
+                </div>
+                <div class="form-group p-1">
+                    <div class="row p-xl-3 p-lg-3 p-md-3">
+                        <label class="col-xl-4 col-lg-4 col-md-4 col-xs-12">Contraseña</label>
+                        <input type="password" class="form-control col-xl-8 col-lg-8 col-md-8 col-xs-12" ng-model="user.password" placeholder="Contraseña" required/>
+                    </div>
+                </div>
+                <div class="text-center p-1">
+                    <button class="btn btn-primary pl-5 pr-5 pb-1" ng-click="login(user.email, user.password)">Entrar</button><br>
+                    <small class="col-12" style="text-align: right;">¿Olvidaste tu contraseña? Recup&eacute;rala <a ui-sref="main.recuperar-password">aquí</a></small>
+                </div>
+            </form>
+            <div class="col-12 text-center p-1"> 
+                <small><a ui-sref="main.login">Cliente</a>&nbsp;|&nbsp;<a ui-sref="main.login-admin">Administrador</a></small>
+            </div>
+        </div>
+        <div class="col-xl-3 col-lg-3 col-md-2 col-sm-1 col-xs-1">
+        </div>
+    </div>
+</div>

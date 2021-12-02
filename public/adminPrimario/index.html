@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Vitah</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link type="text/css" href="../css/bootstrap.min.css" rel="stylesheet" />
+        <link type="text/css" href="../css/noty.css" rel="stylesheet" />
+        <link type="text/css" href="../css/all.css" rel="stylesheet" />
+        <link type="text/css" href="../css/vitah.css" rel="stylesheet" />
+        <script type="text/javascript" src="../js/modules/angular.min.js"></script>
+        <script type="text/javascript" src="../js/modules/angular-ui-router.js"></script>
+        <script type="text/javascript" src="../js/modules/ocLazyLoad.min.js"></script>
+        <script type="text/javascript" src="../js/modules/noty.min.js"></script>
+        <script type="text/javascript" src="../js/modules/jquery.min.js"></script>
+        <script type="text/javascript" src="../js/modules/ng-file-upload.min.js"></script>
+        <script type="text/javascript" src="../js/modules/ng-file-upload-shim.min.js"></script>
+        <script type="text/javascript" src="js/app.js"></script>
+        <script type="text/javascript" src="js/routes.js"></script>
+        <script type="text/javascript" src="js/directives/numbers-only.js"></script>
+        <!--probablemente se van-->
+        <!--<script type="text/javascript" src="../js/modules/xlsx.full.min.js"></script>-->
+        <script type="text/javascript" src="../js/modules/xlsx.core.min.js"></script>
+        <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.26.0/polyfill.js"></script>-->
+        <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.2.0/exceljs.min.js"></script>-->
+        <!--<script type="text/javascript" src="../js/modules/excel.js"></script>-->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.15.5/xlsx.core.min.js"></script>
+        <script type="text/javascript" src="../js/modules/FileSaver.min.js"></script>
+        <script type="text/javascript" src="../js/modules/tableexport.min.js"></script>
+
+        <!--hasta aqui-->
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.min.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-storage.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
+        <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+        <script type="text/javascript">
+            var base_url = "http://localhost/vitah3.0/public_html/";
+           // var base_url = "https://vitahonline.com/";
+            var admin_url = "http://localhost/vitah3.0/public_html/adminPrimario/templates";
+            //var admin_url = "https://vitahonline.com/adminPrimario/templates";
+        </script>
+    </head>
+    <body id="panel">
+        <div ng-app="app" id="admin-ind">
+            <div class="wrapper" ui-view></div>
+        </div>
+    </body>
+</html>

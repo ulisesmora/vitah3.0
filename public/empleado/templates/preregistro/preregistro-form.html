@@ -1,0 +1,158 @@
+<div class="container-preregistro">
+    <div id="form-preregistro">
+        <h1 class="text-center">Para impulsarte, queremos conocerte</h1>
+        <div id="pregunta1" class="p-5">
+            <h3>1.- Cu&eacute;ntanos un poco sobre ti </h3>
+            <div class="row class-12">
+                <label class="col-1">Edad: *</label>
+                <input type="text" class="form-control col-10" ng-model="cuestionario.edad" placeholder="Edad" required>
+            </div>
+            <div class="row class-12 pt-3">
+                <label class="col-1">G&eacute;nero: *</label>
+                <input type="text" class="form-control col-10" ng-model="cuestionario.genero" placeholder="Genero" required>
+            </div>
+
+            <select name="select">
+                <option value="value1">Value 1</option>
+                <option value="value2" selected>Value 2</option>
+                <option value="value3">Value 3</option>
+              </select>
+            <div class="row class-12 pt-3">
+                <label class="col-1">&Aacute;rea: *</label>
+                <input type="text" class="form-control col-10" ng-model="cuestionario.area" placeholder="Area" required>
+            </div>
+            <div class="row class-12 pt-3">
+                <label class="col-1">Puesto: *</label>
+                <input type="text" class="form-control col-10" ng-model="cuestionario.puesto" placeholder="Puesto" required>
+            </div>
+            <div class="float-right">
+                <button ng-click="siguiente('pregunta1', 'pregunta2', cuestionario.edad, cuestionario.genero, cuestionario.area, cuestionario.puesto)" class="btn btn-primary">Siguiente</button>
+            </div>
+        </div>
+        <div id="pregunta2" class='p-5'>
+            <h3>2.- ¿Qu&eacute; buscas en Vitah?</h3>
+            <!--            <div class="row class-12">
+                            <input type="checkbox" class="col-2 form-check-input" ng-model="cuestionario.buscas.crecimiento">
+                            <label class="col-10">Crecimiento personal</label>
+                        </div>-->
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" ng-model="cuestionario.buscas.crecimiento">
+                <label class="form-check-label" for="defaultCheck1">&nbsp; Crecimiento personal</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" ng-model="cuestionario.buscas.desestres">
+                <label class="form-check-label" for="defaultCheck1">&nbsp; Desestr&eacute;s</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" ng-model="cuestionario.buscas.laboral">
+                <label class="form-check-label" for="defaultCheck1">&nbsp;Crecimiento laboral</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" ng-model="cuestionario.buscas.relajacion">
+                <label class="form-check-label" for="defaultCheck1">&nbsp;T&eacute;cnicas de relajaci&oacute;n</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" ng-model="cuestionario.buscas.emocional">
+                <label class="form-check-label" for="defaultCheck1">&nbsp;Estabilidad emocional</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" ng-model="cuestionario.buscas.inspiracion">
+                <label class="form-check-label" for="defaultCheck1">&nbsp;Inspiraci&oacute;n</label>
+            </div>
+            <div class="row class-12 pt-3">
+                <label class="col-1">Otro: </label>
+                <input type="text" class="form-control col-10" ng-model="cuestionario.buscas.otro" placeholder="Puesto" required>
+            </div>
+            <div class="float-right">
+                <button ng-click="siguienteTres('pregunta2', 'pregunta3', cuestionario.buscas)" class="btn btn-primary">Siguiente</button>
+            </div>
+        </div>
+        <div id="pregunta3">
+            <h3>3.- ¿Qu&eacute; es para ti el desarrollo personal?</h3>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" ng-model="cuestionario.desarrollo.relaciones">
+                <label class="form-check-label" for="defaultCheck1">&nbsp; Mejorar mis relaciones personales</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" ng-model="cuestionario.desarrollo.crecer">
+                <label class="form-check-label" for="defaultCheck1">&nbsp; Crecer profesionalmente</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" ng-model="cuestionario.desarrollo.ingresos">
+                <label class="form-check-label" for="defaultCheck1">&nbsp;Generar m&aacute;s ingresos</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" ng-model="cuestionario.desarrollo.objetivos">
+                <label class="form-check-label" for="defaultCheck1">&nbsp;Lograr mis objetivos personales</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" ng-model="cuestionario.desarrollo.toleracia">
+                <label class="form-check-label" for="defaultCheck1">&nbsp;Trabajar la tolerancia</label>
+            </div>
+            <div class="row class-12 pt-3">
+                <label class="col-1">Otro: </label>
+                <input type="text" class="form-control col-10" ng-model="cuestionario.desarrollo.otro" placeholder="Otro">
+            </div>
+            <div class="float-right">
+                <button ng-click="siguienteCuatro('pregunta3', 'pregunta4', cuestionario.desarrollo)" class="btn btn-primary">Siguiente</button>
+            </div>
+        </div>
+        <div id="pregunta4" class='p-5'>
+            <h3>4.- ¿En d&oacute;nde te ves en 10 años?</h3>
+            <div class="row class-12 pt-3">
+                <textarea class="form-control" rows="5" ng-model='cuestionario.diezanios'></textarea>
+            </div>
+            <br>
+            <div class="float-right">
+                <button ng-click="siguienteCuatro('pregunta4', 'pregunta5', cuestionario.diezanios)" class="btn btn-primary">Siguiente</button>
+            </div>
+        </div>
+        <div id="pregunta5" class='p-5'>
+            <h3>5.- ¿En qu&eacute; &aacute;reas te gustar&iacute;a desarrollarte?</h3>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" ng-model="cuestionario.areas.adversidad">
+                <label class="form-check-label" for="defaultCheck1">&nbsp; Adversidad</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" ng-model="cuestionario.areas.liderazgo">
+                <label class="form-check-label" for="defaultCheck1">&nbsp; Liderezgo</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" ng-model="cuestionario.areas.crecimiento">
+                <label class="form-check-label" for="defaultCheck1">&nbsp; Crecimiento personal</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" ng-model="cuestionario.areas.felicidad">
+                <label class="form-check-label" for="defaultCheck1">&nbsp; Felicidad</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" ng-model="cuestionario.areas.pensamientos">
+                <label class="form-check-label" for="defaultCheck1">&nbsp;Pensamiento</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" ng-model="cuestionario.areas.flexibilidad">
+                <label class="form-check-label" for="defaultCheck1">&nbsp;Flexibilidad</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" ng-model="cuestionario.areas.energia">
+                <label class="form-check-label" for="defaultCheck1">&nbsp;Energ&iacute;a</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" ng-model="cuestionario.areas.emociones">
+                <label class="form-check-label" for="defaultCheck1">&nbsp;Emociones</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" ng-model="cuestionario.areas.gratitud">
+                <label class="form-check-label" for="defaultCheck1">&nbsp;Gratitud</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" ng-model="cuestionario.areas.equilibrio">
+                <label class="form-check-label" for="defaultCheck1">&nbsp;Equilibrio</label>
+            </div>
+             <br>
+            <div class="float-right">
+                <button ng-click="guardarDatos(cuestionario)" class="btn btn-primary">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>

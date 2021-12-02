@@ -1,0 +1,189 @@
+<div class="container">
+    <div class="admin-title pt-5 pb-5">
+        <h1>Informaci&oacute;n del cliente {{cliente.nombreEmpresa}}</h1>
+    </div>
+    <div class="col-12 row text-center" id="menuEditar">
+        <div class="col-4 "> 
+            <a class="menu-edicion-cliente active-menu" href="" ng-click="irA('datos-empresa', 'datos-contacto', 'datos-contrato')">Datos de la empresa</a>
+        </div>
+        <div class="col-4"> 
+            <a class="menu-edicion-cliente" href="" ng-click="irA('datos-contacto', 'datos-empresa', 'datos-contrato')">Datos del cliente</a>
+        </div>
+        <div class="col-4"> 
+            <a class="menu-edicion-cliente" href="" ng-click="irA('datos-contrato', 'datos-empresa', 'datos-contacto')">Datos del contrato</a>
+        </div>
+    </div>
+    <div class="formulario mt-5 p-5 col-12">
+        <h2 style="color:white; border-bottom: 1px solid white;"><strong>Cliente</strong></h2>
+        <div id="datos-empresa" class="pb-3">
+            <h3 class="mb-4">Datos de la empresa</h3>
+            <div class="form-group">
+                <label>Nombre de la empresa *</label>
+                <input class="form-control readonly" ng-model="cliente.nombreEmpresa" readonly>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-6">
+                        <label>Raz&oacute;n social </label>
+                        <input class="form-control readonly" ng-model="cliente.razonSocial" readonly>
+                    </div>
+                    <div class="col-6">
+                        <label>Sitio web </label>
+                        <input class="form-control readonly" ng-model="cliente.sitioWeb" readonly>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Domicilio </label>
+                <input class="form-control readonly" ng-model="cliente.domicilio" readonly>
+            </div>
+        </div>
+        <div id="datos-contacto">
+            <h3 class="mb-4">Datos contacto principal</h3>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-4">
+                        <label>Nombre * </label>
+                        <input class="form-control readonly" ng-model="cliente.nombreContacto" readonly>
+                    </div>
+                    <div class="col-4">
+                        <label>Primer apellido *</label>
+                        <input class="form-control readonly" ng-model="cliente.primerApellidoContacto" readonly>
+                    </div>
+                    <div class="col-4">
+                        <label>Segundo apellido *</label>
+                        <input class="form-control readonly" ng-model="cliente.segundoApellidoContacto" readonly>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-4">
+                        <label>Email *</label>
+                        <input class="form-control readonly" ng-model="cliente.emailContacto" readonly>
+                    </div>
+                    <div class="col-4">
+                        <label>Tel&eacute;fono *</label>
+                        <input class="form-control readonly" ng-model="cliente.telefonoContacto" readonly>
+                    </div>
+                    <div class="col-4">
+                        <label>Puesto </label>
+                        <input class="form-control readonly" ng-model="cliente.puestoContacto" readonly>
+                    </div>
+                </div>
+            </div>
+            <!--            <div class="row col-12">
+                            <div class="col-9">
+                            </div>
+                            <div class="col-3">
+                                <a href="" ng-click="atras('datos-empresa', 'datos-contacto')">Atr&aacute;s</a>
+                                <label>&nbsp; &nbsp;</label>
+                                <button class="btn btn-primary btn-lg" ng-click="irContrato(cliente.nombreContacto, cliente.primerApellidoContacto, cliente.segundoApellidoContacto, cliente.emailContacto, cliente.telefonoContacto)">Siguiente</button>
+                            </div>
+                        </div>-->
+        </div>
+        <div id="datos-contrato">
+            <h3 class="mb-4">Requisitos de ingreso a los m&oacute;dulos</h3>
+            <div class="form-group">
+                <label>Usuarios disponibles a registrar bajo el código empresarial *</label>
+                <input class="form-control readonly" ng-model="cliente.numeroUsuariosEmpresa" readonly>
+            </div>
+<!--            <div class="form-group">
+                <label>Módulos contratados por la empresa: </label>
+                <div class="row col-12">
+                                        <div class="col-3">
+                                            <select name="multipleSelect" id="multipleSelect"   multiple>
+                                                <option ng-repeat="modulo in modulos" ng-click="seleccionarModulos(modulo.nombre, modulo.id);">{{modulo.nombre}}</option>
+                                            </select>
+                                        </div>
+                    <table class="table table-striped table-dark">
+                        <thead>
+                            <tr>
+                                <th scope="col">M&oacute;dulo</th>
+                            </tr>
+                        </thead>
+                        <tr   ng-repeat="moduloSeleccionado in cliente.modulosContratados">
+                            <td>{{moduloSeleccionado.nombre}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>-->
+<!--            <div class="form-group">
+                <label>¿Qué días podrán acceder los usuarios? *</label>
+                <div class='row col-12'>
+                    <div class='row col-3'>
+                        <div class="row col-12">
+                            <label ng-if="cliente.diasAcceso[1] === true"><i class="far fa-check-square" style="color:white;"></i></label>
+                            <label ng-if="cliente.diasAcceso[1] === false"><i class="far fa-square" style="color:white;"></i></label>
+                            &nbsp;<label>Lunes</label>
+                        </div>
+                        <div class="row col-12">
+                            <label ng-if="cliente.diasAcceso[2] === true"><i class="far fa-check-square" style="color:white;"></i></label>
+                            <label ng-if="cliente.diasAcceso[2] === false"><i class="far fa-square" style="color:white;"></i></label>
+                            &nbsp;<label>Martes</label>
+                        </div>
+
+                    </div>
+                    <div class='row col-3'>
+                        <div class="row col-12">
+                            <label ng-if="cliente.diasAcceso[3] === true"><i class="far fa-check-square" style="color:white;"></i></label>
+                            <label ng-if="cliente.diasAcceso[3] === false"><i class="far fa-square" style="color:white;"></i></label>
+                            &nbsp;<label>Mi&eacute;rcoles</label>
+                        </div>
+                        <div class="row col-12">
+                            <label ng-if="cliente.diasAcceso[4] === true"><i class="far fa-check-square" style="color:white;"></i></label>
+                            <label ng-if="cliente.diasAcceso[4] === false"><i class="far fa-square" style="color:white;"></i></label>
+                            &nbsp;<label>Jueves</label>
+                        </div>
+                    </div>
+                    <div class='row col-3'>
+                        <div class="row col-12">
+                            <label ng-if="cliente.diasAcceso[5] === true"><i class="far fa-check-square" style="color:white;"></i></label>
+                            <label ng-if="cliente.diasAcceso[5] === false"><i class="far fa-square" style="color:white;"></i></label>
+                            &nbsp;<label>Viernes</label>
+                        </div>
+                        <div class="row col-12">
+                            <label ng-if="cliente.diasAcceso[6] === true"><i class="far fa-check-square" style="color:white;"></i></label>
+                            <label ng-if="cliente.diasAcceso[6] === false"><i class="far fa-square" style="color:white;"></i></label>
+                            &nbsp;<label>S&aacute;bado</label>
+                        </div>
+                    </div>
+                    <div class='row col-3'>
+                        <div class="row col-12">
+                            <label ng-if="cliente.diasAcceso[0] === true"><i class="far fa-check-square" style="color:white;"></i></label>
+                            <label ng-if="cliente.diasAcceso[0] === false"><i class="far fa-square" style="color:white;"></i></label>
+                            &nbsp;<label>Domingo</label>
+                        </div>
+                    </div>
+                </div>
+            </div>-->
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-6" >
+                        <label>Fecha inicio de contrato</label>
+                        <input type="text" class="form-control col-9 readonly" ng-model="cliente.fechaInicioContrato" readonly>
+                    </div>
+                    <div class="col-6">
+                        <label>Fecha expiración de contrato</label>
+                        <input type="text" class="form-control col-9 readonly" ng-model="cliente.fechaFinalContrato" readonly>
+                    </div>
+                </div>
+            </div>
+<!--            <div class="form-group">
+                <label>¿Cu&aacute;ntos videos por d&iacute;a puede ver el usuario? *</label>
+                <input type="text" class="form-control readonly" ng-model="cliente.videosAcceso" readonly>
+            </div>-->
+            <div class="text-right p-1">
+            </div>
+        </div>
+        <div class="row col-12">
+            <div class="col-10">
+            </div>
+            <div class="col-2">
+                <button ng-click="editarCliente()" class="btn btn-primary btn-lg"  style="font-size: 12px;"><i class="fas fa-user-edit"></i>&nbsp;Ir a edición</button>
+            </div>
+        </div>
+    </div>
+
+</div>

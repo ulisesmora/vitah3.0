@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--<meta name='viewport' content='initial-scale=1, viewport-fit=cover' class="content">-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+        <title>Vitah</title>
+        <!--        <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+        <link type="text/css" href="css/bootstrap.min.css" rel="stylesheet" />
+        <link type="text/css" href="css/noty.css" rel="stylesheet" />
+        <link type="text/css" href="css/jquery.modal.min.css" rel="stylesheet" />
+        <link type="text/css" href="css/all.css" rel="stylesheet" />
+        <link type="text/css" href="css/slick.css" rel="stylesheet" />
+        <link type="text/css" href="css/slick-theme.css" rel="stylesheet" />
+        <link type="text/css" href="css/vitah.css" rel="stylesheet" />
+        <script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
+        <script type="text/javascript" src="js/modules/angular.min.js"></script>
+        <script type="text/javascript" src="js/modules/angular-ui-router.js"></script>
+        <script type="text/javascript" src="js/modules/ocLazyLoad.min.js"></script>
+        <script type="text/javascript" src="js/modules/noty.min.js"></script>
+        <script type="text/javascript" src="js/modules/jquery.min.js"></script>
+           <script type="text/javascript" src="js/modules/slick.min.js"></script>
+        <script type="text/javascript" src="auth/js/app.js"></script>
+        <script type="text/javascript" src="auth/js/routes.js"></script>
+        <script type="text/javascript" src="auth/js/directives/numbers-only.js"></script>
+        <script type="text/javascript" src="auth/js/modules/jquery.modal.min.js"></script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.min.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-storage.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
+        <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+        <script type="text/javascript">
+           var base_url = "http://localhost/vitah3.0/public_html/";
+           // var base_url = "https://vitahonline.com/";
+            var auth_url = "http://localhost/vitah3.0/public_html/auth/templates";
+          //  var auth_url = "https://vitahonline.com/auth/templates";
+           var admin_url = "https://localhost/vitah3.0/public_html/admin/templates";
+           // var admin_url = "https://vitahonline.com/admin/templates";
+        </script>
+    </head>
+    <body>
+        <div ng-app="app"> 
+            <!--<div ng-app="app" class="content">--> 
+            <div class="wrapper" ui-view>
+
+            </div>
+        </div>
+        <script src="https://www.gstatic.com/firebasejs/ui/4.8.0/firebase-ui-auth.js"></script>
+        <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.0/firebase-ui-auth.css" />
+        <script src="https://js.stripe.com/v3/"></script>
+    </body>
+
+</html>
